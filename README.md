@@ -31,7 +31,47 @@ This problem statement is scoped to first-deposit activation only. It does not a
 
 
 ## RAAIDD Log
+CAP182 Capstone Project: STADIOEquities
 
+**Risks**
+
+| # | Risk | Mitigation |
+|---|---|---|
+| 1 | The day-3 window may not contain enough signal to predict a 30-day outcome reliably: onboarding and first-session behaviour this early could be too sparse or noisy to separate future depositors from non-depositors. | Benchmark day-3 model performance against a later checkpoint (e.g. day-7) during evaluation to quantify the accuracy trade-off of intervening earlier. |
+| 2 | Class imbalance in the target variable: roughly 41% of accounts never fund at all, but the exact split within a 30-day window is unknown, so the model may default to predicting the majority class rather than genuinely discriminating. | Check class balance during EDA; apply resampling, class weighting, or threshold adjustment if the split is skewed. |
+
+**Actions**
+
+| # | Action | Stage |
+|---|---|---|
+| 1 | Clean and merge the five data-request tables into a single modelling dataset, resolving the client_id joins and handling nulls (e.g. time_to_kyc_complete_hours where KYC isn't finished by day 3). | Data preparation |
+| 2 | Engineer features from raw fields where the day-3 signal isn't already in usable form (e.g. converting step_last_abandoned into a one-hot encoded flag, deriving a funnel-progress score from onboarding steps completed). | Feature engineering |
+
+**Assumptions**
+
+| # | Assumption | Why it needs stating |
+|---|---|---|
+| 1 | Day-3 behavioural and onboarding signals are genuinely informative of the 30-day deposit outcome; this is the core premise of the problem statement and hasn't yet been tested against real data. | If false, the whole day-3/day-30 framing (and the intervention timing it supports) would need revisiting. |
+| 2 | STADIOEquities can supply all requested fields at the granularity specified in Part C (e.g. per-session timestamps, exact onboarding step counts); the briefing pack describes the data landscape at a high level but doesn't guarantee field-level availability. | Missing or coarser data than requested would force feature substitutions or a revised scope. |
+
+**Issues**
+
+| # | Issue |
+|---|---|
+| 1 | The briefing pack does not specify the exact number or definition of onboarding steps, so onboarding_steps_completed_day3's valid range (0-N) could not be finalised in Part C and was flagged for the client to confirm. |
+
+**Decisions**
+
+| # | Decision |
+|---|---|
+| 1 | Framed the problem as binary supervised classification (deposited within 30 days: yes/no) rather than regression or clustering, using a day-3 decision point and 30-day outcome window, and excluded deposit_amount_first as a predictor to avoid data leakage. |
+
+**Dependencies**
+
+| # | Dependency |
+|---|---|
+| 1 | The requested data (Part C) must be received from STADIOEquities before any data cleaning or exploratory analysis can begin. |
+| 2 | Feature engineering and the day-3/day-7 benchmark comparison (Risk 1's mitigation) must be completed before model training and evaluation, since both depend on a finalised, leakage-checked feature set. |
 
 
 
