@@ -21,13 +21,14 @@ This problem statement is scoped to first-deposit activation only. It does not a
 
 ## Repository Structure
 
-- data/ - Part C data request and datasets
-- preprocessing/ - cleaning and preparing the data
-- feature-extraction/ - building model features
-- modelling/ - training and fitting the model
-- evaluation/ - testing and evaluating model performance
-- visualisation/ - charts and graphics
-- utils/ - helper and comparison scripts
+- `data/` — **Datasets**: Part C data request and raw/processed data
+- `models/` — **Models**: trained/saved model files
+- `preprocessing/` — **Experimental setup**: cleaning and preparing the data
+- `feature-extraction/` — **Experimental setup**: building model features
+- `modelling/` — **Experimental setup**: training and fitting the model
+- `evaluation/` — **Experimental results**: testing and evaluating model performance
+- `utils/` — **Statistical helper and comparison scripts**
+- `visualisation/` — **Visualisation scripts**: charts and graphics
 
 
 ## RAAIDD Log
