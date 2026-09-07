@@ -31,7 +31,6 @@ This problem statement is scoped to first-deposit activation only. It does not a
 
 
 ## RAAIDD Log
-CAP182 Capstone Project: STADIOEquities
 
 **Risks**
 
@@ -39,6 +38,8 @@ CAP182 Capstone Project: STADIOEquities
 |---|---|---|
 | 1 | The day-3 window may not contain enough signal to predict a 30-day outcome reliably: onboarding and first-session behaviour this early could be too sparse or noisy to separate future depositors from non-depositors. | Benchmark day-3 model performance against a later checkpoint (e.g. day-7) during evaluation to quantify the accuracy trade-off of intervening earlier. |
 | 2 | Class imbalance in the target variable: roughly 41% of accounts never fund at all, but the exact split within a 30-day window is unknown, so the model may default to predicting the majority class rather than genuinely discriminating. | Check class balance during EDA; apply resampling, class weighting, or threshold adjustment if the split is skewed. |
+| 3 | Model interpretability risk: if the best-performing algorithm (e.g. a neural network) is too opaque, leadership and the growth team may struggle to trust or act on its predictions, undermining the report's usefulness to decision-makers. | Compare accuracy against interpretability during model selection (Topic 3/4) and be prepared to accept a simpler, more explainable model if the accuracy gap is small. |
+| 4 | Timeline risk: cleaning, feature engineering, modelling, and report/presentation writing all depend on receiving the requested data first, so any delay from STADIOEquities compresses the time left for model iteration and report preparation. | Build a buffer into the project schedule between data receipt and the report/presentation deadline, and flag the data dependency to the client early. |
 
 **Actions**
 
@@ -46,6 +47,8 @@ CAP182 Capstone Project: STADIOEquities
 |---|---|---|
 | 1 | Clean and merge the five data-request tables into a single modelling dataset, resolving the client_id joins and handling nulls (e.g. time_to_kyc_complete_hours where KYC isn't finished by day 3). | Data preparation |
 | 2 | Engineer features from raw fields where the day-3 signal isn't already in usable form (e.g. converting step_last_abandoned into a one-hot encoded flag, deriving a funnel-progress score from onboarding steps completed). | Feature engineering |
+| 3 | Evaluate multiple algorithms (e.g. logistic regression, decision tree) against both accuracy and interpretability, selecting one that performs adequately and can be explained to non-technical stakeholders. | Model building |
+| 4 | Prepare the report and 10-minute presentation per Topic 5, translating the day-3 prediction and its recommended intervention timing into language and visuals suited to academic and industry decision-makers. | Report writing and presentation |
 
 **Assumptions**
 
@@ -53,6 +56,8 @@ CAP182 Capstone Project: STADIOEquities
 |---|---|---|
 | 1 | Day-3 behavioural and onboarding signals are genuinely informative of the 30-day deposit outcome; this is the core premise of the problem statement and hasn't yet been tested against real data. | If false, the whole day-3/day-30 framing (and the intervention timing it supports) would need revisiting. |
 | 2 | STADIOEquities can supply all requested fields at the granularity specified in Part C (e.g. per-session timestamps, exact onboarding step counts); the briefing pack describes the data landscape at a high level but doesn't guarantee field-level availability. | Missing or coarser data than requested would force feature substitutions or a revised scope. |
+| 3 | The 30-day deposit label reflects genuine investing intent rather than short-lived platform testing or promotion-driven deposits (e.g. sign-up bonuses), which could otherwise distort what "activation" actually signals. | If deposits are frequently promotion-driven, the model may learn to predict bonus-chasing behaviour rather than durable client activation. |
+| 4 | Client registration behaviour is stable across the period used for training and isn't materially skewed by seasonal effects (e.g. year-end bonus season, tax year-end) that could shift deposit timing independent of day-3 signals. | If seasonality is strong, a model trained on one period may generalise poorly to registrations from a different time of year. |
 
 **Issues**
 
@@ -72,9 +77,5 @@ CAP182 Capstone Project: STADIOEquities
 |---|---|
 | 1 | The requested data (Part C) must be received from STADIOEquities before any data cleaning or exploratory analysis can begin. |
 | 2 | Feature engineering and the day-3/day-7 benchmark comparison (Risk 1's mitigation) must be completed before model training and evaluation, since both depend on a finalised, leakage-checked feature set. |
-
-
-
-
-
-
+| 3 | Model selection and evaluation (Topic 3/4) must be completed before the report and presentation (Topic 5) can be finalised, since the report needs to reference the chosen algorithm's actual performance and rationale. |
+| 4 | The interpretability check (tied to Risk 3) must happen before the model is locked in, since it may require reverting to a simpler algorithm if the top performer proves too opaque to explain in the report. |
