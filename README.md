@@ -79,3 +79,7 @@ This problem statement is scoped to first-deposit activation only. It does not a
 | 2 | Feature engineering and the day-3/day-7 benchmark comparison (Risk 1's mitigation) must be completed before model training and evaluation, since both depend on a finalised, leakage-checked feature set. |
 | 3 | Model selection and evaluation (Topic 3/4) must be completed before the report and presentation (Topic 5) can be finalised, since the report needs to reference the chosen algorithm's actual performance and rationale. |
 | 4 | The interpretability check (tied to Risk 3) must happen before the model is locked in, since it may require reverting to a simpler algorithm if the top performer proves too opaque to explain in the report. |
+
+## Literature Review
+
+See [literature-review/](literature-review/) for the literature review and public dataset selection (Part A).
