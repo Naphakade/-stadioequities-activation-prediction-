@@ -1,6 +1,6 @@
-# STADIOEquities Activation Prediction
+CAP182 Capstone Project. This project predicts whether a newly registered customer of STADIOEquities, a fictional South African fintech, will make a first deposit within 30 days of registering, using only information available at a day-3 decision point.
 
-CAP182 Capstone Project. This project predicts whether a newly registered STADIOEquities customer will make a first deposit (activation). Because STADIOEquities data is not yet available, the approach is tested on the public UCI Bank Marketing dataset, whose binary target (whether a customer converts to a financial product) serves as a proxy.
+Because STADIOEquities data is not yet available, the modelling approach is tested on the public UCI Bank Marketing dataset, whose binary target (whether a customer converts to a financial product) serves as a proxy. The decision-point principle is applied by excluding call duration, which is only known after the outcome. The proxy has no registration timeline, so the day-3 and 30-day structure is not tested directly; the Part D report explains how the model would be adapted to the day-3 behavioural data requested in SS1.
 
 ## Part A: Literature review
 
