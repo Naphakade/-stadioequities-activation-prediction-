@@ -15,13 +15,25 @@ See the [`literature-review`](literature-review) folder.
 | 3 | [Model 1: Logistic Regression](Model1.MD) | `modelling/model1_logistic_regression.ipynb` |
 | 4 | [Model 2: Decision Tree](Model2.MD) | `modelling/model2_decision_tree.ipynb` |
 
-Run the notebooks in the order above.
+## Part C: Results
+
+| Step | Description | Code |
+|---|---|---|
+| 5 | [Model 1 Performance](Model1Performance.MD) | `evaluation/model1_performance.ipynb` |
+| 6 | [Model 2 Performance](Model2Performance.MD) | `evaluation/model2_performance.ipynb` |
+| 7 | [Comparison of Model 1 and Model 2](Comparison.MD) | `evaluation/comparison.ipynb` |
+
+Shared evaluation functions are in `utils/evaluation_utils.py`.
+
+## Part D: Recommendations
+
+The client report is in [`reports/Part_D_Recommendations_Report.pdf`](reports/Part_D_Recommendations_Report.pdf).
 
 ## Setup
 
 1. Install the required packages: `pip install -r requirements.txt`
 2. Place `bank-additional-full.csv` in the `data` folder. It can be downloaded from https://archive.ics.uci.edu/dataset/222/bank+marketing
-3. Open each notebook in Jupyter and run **Kernel → Restart Kernel and Run All Cells**.
+3. Open each notebook in Jupyter and run **Kernel → Restart Kernel and Run All Cells**, in the order of the step numbers above.
 
 ## Dataset
 
