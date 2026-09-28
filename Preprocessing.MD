@@ -8,9 +8,10 @@ This notebook loads the raw Bank Marketing dataset, checks its quality, explores
 
 ## How to use
 
-1. Install the required packages from the main project folder:
+ 1. Install the required packages from the main project folder: `pip install -r requirements.txt`
 
 2. Place the raw dataset at `data/bank-additional-full.csv`. It can be downloaded from the UCI Machine Learning Repository: https://archive.ics.uci.edu/dataset/222/bank+marketing
+
 3. Open `preprocessing/preprocessing.ipynb` in Jupyter and run **Kernel → Restart Kernel and Run All Cells**.
 
 **Input:** `data/bank-additional-full.csv` (41,188 rows, 21 columns, semicolon-separated)
