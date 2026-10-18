@@ -38,7 +38,7 @@ A decision tree classifies customers by learning a sequence of yes/no rules on t
 | `criterion` | default | `gini` |
 | `random_state` | fixed | 42 |
 
-- **Class imbalance:** `class_weight="balanced"` gives the minority "yes" class more weight (Singh et al., 2024).
+- **Class imbalance:** `class_weight="balanced"` gives the minority "yes" class more weight (Sifa et al., 2015).
 - **Tuning:** grid search with 5-fold stratified cross-validation within the training period only, using ROC AUC. Best cross-validation AUC: **0.665**.
 
 ## Results (test period)
@@ -54,12 +54,12 @@ A decision tree classifies customers by learning a sequence of yes/no rules on t
 
 ## Model selection
 
-Logistic regression (Model 1) is selected as the final model. It performs better on the unseen later period, is more robust when conditions change, and is easier to interpret. For STADIOEquities, both models' reliance on timing and economic features suggests that customer-level behavioural data, such as the session and timing fields in the SS1 data request, would be needed for reliable activation prediction (Abbas, Hussain and Rimal, 2025).
+Logistic regression (Model 1) is selected as the final model. It performs better on the unseen later period, is more robust when conditions change, and is easier to interpret. For STADIOEquities, both models' reliance on timing and economic features suggests that customer-level behavioural data, such as the session and timing fields in the SS1 data request, would be needed for reliable activation prediction (Sakar et al., 2019).
 
 ## References
 
-Abbas, S.K., Hussain, M. and Rimal, Y.N. (2025) 'Machine learning-based analysis of technology acceptance in FinTech: a behavioral study using digital wallet data', *SN Computer Science*, 6, article 674. doi: 10.1007/s42979-025-04214-8.
-
 Moro, S., Cortez, P. and Rita, P. (2014) 'A data-driven approach to predict the success of bank telemarketing', *Decision Support Systems*, 62, pp. 22-31. doi: 10.1016/j.dss.2014.03.001.
 
-Singh, P.P., Anik, F.I., Senapati, R., Sinha, A., Sakib, N. and Hossain, E. (2024) 'Investigating customer churn in banking: a machine learning approach and visualization app for data science and management', *Data Science and Management*, 7(1), pp. 7-16. doi: 10.1016/j.dsm.2023.09.002.
+Sakar, C.O., Polat, S.O., Katircioglu, M. and Kastro, Y. (2019) 'Real-time prediction of online shoppers' purchasing intention using multilayer perceptron and LSTM recurrent neural networks', *Neural Computing and Applications*, 31, pp. 6893–6908. doi: 10.1007/s00521-018-3523-0.
+
+Sifa, R., Hadiji, F., Runge, J., Drachen, A., Kersting, K. and Bauckhage, C. (2015) 'Predicting purchase decisions in mobile free-to-play games', *Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment*, 11(1), pp. 79–85. doi: 10.1609/aiide.v11i1.12788.

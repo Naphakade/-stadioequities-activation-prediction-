@@ -29,7 +29,7 @@ This notebook must be run first, before [feature engineering](FeatureEngineering
 - **Near-constant column:** `default` contains only 3 "yes" values; almost all values are "no" or "unknown".
 
 ### 2. Exploratory data analysis
-- **Class imbalance:** only 11.3% of customers converted ("yes"), so accuracy alone would be a misleading metric. This is handled during modelling with class weighting, following Singh et al. (2024).
+- **Class imbalance:** only 11.3% of customers converted ("yes"), so accuracy alone would be a misleading metric. This is handled during modelling with class weighting, following Sifa et al. (2015).
 - **Change over time:** the rows are in date order (May 2008 to November 2010). The conversion rate rises sharply in the later campaigns, which supports using a time-ordered train/test split (Moro, Cortez and Rita, 2014).
 - **Predictors:** conversion varies strongly by previous campaign outcome (`poutcome`), contact type, job and month.
 - **Multicollinearity:** the economic indicators `emp.var.rate`, `euribor3m` and `nr.employed` are very highly correlated with each other.
@@ -52,4 +52,4 @@ Moro, S., Cortez, P. and Rita, P. (2014) 'A data-driven approach to predict the 
 
 Moro, S., Rita, P. and Cortez, P. (2014) *Bank Marketing* [Dataset]. UCI Machine Learning Repository. doi: 10.24432/C5K306.
 
-Singh, P.P., Anik, F.I., Senapati, R., Sinha, A., Sakib, N. and Hossain, E. (2024) 'Investigating customer churn in banking: a machine learning approach and visualization app for data science and management', *Data Science and Management*, 7(1), pp. 7–16. doi: 10.1016/j.dsm.2023.09.002.
+Sifa, R., Hadiji, F., Runge, J., Drachen, A., Kersting, K. and Bauckhage, C. (2015) 'Predicting purchase decisions in mobile free-to-play games', *Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment*, 11(1), pp. 79–85. doi: 10.1609/aiide.v11i1.12788.

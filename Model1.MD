@@ -35,7 +35,7 @@ Logistic regression is a linear classifier that estimates the probability of con
 | `max_iter` | fixed | 2000 |
 | `random_state` | fixed | 42 |
 
-- **Class imbalance:** `class_weight="balanced"` gives the minority "yes" class more weight in training (Singh et al., 2024).
+- **Class imbalance:** `class_weight="balanced"` gives the minority "yes" class more weight in training (Sifa et al., 2015).
 - **Tuning:** grid search with 5-fold stratified cross-validation within the training period only, using ROC AUC. Best cross-validation AUC: **0.671**.
 
 ## Results (test period)
@@ -54,4 +54,4 @@ Logistic regression is a linear classifier that estimates the probability of con
 
 Moro, S., Cortez, P. and Rita, P. (2014) 'A data-driven approach to predict the success of bank telemarketing', *Decision Support Systems*, 62, pp. 22-31. doi: 10.1016/j.dss.2014.03.001.
 
-Singh, P.P., Anik, F.I., Senapati, R., Sinha, A., Sakib, N. and Hossain, E. (2024) 'Investigating customer churn in banking: a machine learning approach and visualization app for data science and management', *Data Science and Management*, 7(1), pp. 7-16. doi: 10.1016/j.dsm.2023.09.002.
+Sifa, R., Hadiji, F., Runge, J., Drachen, A., Kersting, K. and Bauckhage, C. (2015) 'Predicting purchase decisions in mobile free-to-play games', *Proceedings of the AAAI Conference on Artificial Intelligence and Interactive Digital Entertainment*, 11(1), pp. 79–85. doi: 10.1609/aiide.v11i1.12788.
