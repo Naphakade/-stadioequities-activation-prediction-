@@ -38,3 +38,60 @@ The client report is in [`reports/Part_D_Recommendations_Report.pdf`](reports/Pa
 ## Dataset
 
 Moro, S., Rita, P. and Cortez, P. (2014) *Bank Marketing* [Dataset]. UCI Machine Learning Repository. doi: 10.24432/C5K306.
+
+## Study Session 3 (SS3): Client Deposit Prediction
+
+### Overview
+
+Study Session 3 extends the existing CAP182 capstone project by applying the selected machine learning method to the STADIOEquities client dataset. The objective is to predict whether a newly registered client will make their first deposit within 30 days of registration, using information available by Day 3.
+
+The earlier study sessions used the public UCI Bank Marketing dataset as a proxy because the STADIOEquities client dataset was not available at that stage. SS3 uses the supplied client data to evaluate the selected approach in the intended business context.
+
+### Notebook
+
+The SS3 Part B implementation is available in:
+
+- `SS3_PartB.ipynb`
+
+The notebook covers the following components:
+
+1. **Dataset Loading:** Loads and combines the five client data tables.
+2. **Dataset Preprocessing:** Handles duplicate records, missing values, feature preparation and chronological train, validation and test splits.
+3. **Model Training:** Trains and tunes a logistic regression model using time-aware cross-validation and ROC-AUC scoring.
+4. **Model Validation:** Evaluates the selected model on validation data and an unseen test dataset.
+5. **Results Visualisation:** Presents classification metrics, a confusion matrix, a ROC curve and a precision-recall curve.
+
+### Methodology
+
+The selected logistic regression model uses a preprocessing pipeline that imputes missing values, scales numerical features and encodes categorical features. Hyperparameter tuning considers different regularisation strengths and class-weight settings.
+
+The dataset is divided chronologically into training, validation and test subsets to reflect the order in which client registrations occur. Features that could reveal the target outcome, including the first-deposit date and Day 30 account status, are excluded to reduce data leakage.
+
+### Test Results
+
+The selected model achieved the following results on the unseen test dataset:
+
+| Metric | Result |
+|---|---:|
+| Accuracy | 79.91% |
+| Precision | 73.19% |
+| Recall | 81.23% |
+| F1-score | 77.00% |
+| ROC-AUC | 0.8747 |
+| Average precision (PR-AUC) | 0.8039 |
+
+A simple KYC-based baseline achieved 79.17% accuracy. The logistic regression model performed slightly better in accuracy and precision, while the baseline achieved higher recall. This comparison demonstrates why model performance should be assessed using several metrics rather than accuracy alone.
+
+### Limitations and Responsible Use
+
+The model's predictions should support, rather than replace, business decisions. Missing information, changes in client behaviour and differences between historical and future client populations may affect performance. KYC-related missing values may also reflect the client's onboarding progress rather than random missing data.
+
+The model should be monitored over time and assessed for fairness, reliability and suitability before being used in operational decisions. Predictions should not be treated as guarantees of future client behaviour.
+
+### Study Session 3 Deliverables
+
+- **Part A:** Peer-review report submitted to Canvas.
+- **Part B:** `SS3_PartB.ipynb`, containing the implementation, evaluation and visualisations.
+- **Part C:** Presentation video link to be added when available.
+- **Part D:** GitHub Discussions to be enabled and monitored in accordance with the assignment requirements.
+
